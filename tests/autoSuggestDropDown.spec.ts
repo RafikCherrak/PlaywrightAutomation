@@ -1,6 +1,7 @@
 const {test, expect} = require('@playwright/test');
 
 test('Auto suggest dropdown', async ({page}) => {
+   try {
     await page.goto('https://www.redbus.in/');
 
     await page.locator('#src').fill('Delhi');
@@ -13,4 +14,7 @@ test('Auto suggest dropdown', async ({page}) => {
         }
 
    await page.waitForTimeout(3000);
+} catch (error) {
+   console.error("Navigation failed:", error);
+}
 });

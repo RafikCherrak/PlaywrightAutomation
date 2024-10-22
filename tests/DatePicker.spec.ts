@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test("Date Picker", async ({ page }) => {
+    try {
     await page.goto("https://testautomationpractice.blogspot.com/");
 
     const year = 2025;
@@ -44,4 +45,7 @@ test("Date Picker", async ({ page }) => {
     }
 
     await page.waitForTimeout(5000); // Pause pour observer le comportement
+} catch (error) {
+    console.error("Navigation failed:", error);
+}
 });

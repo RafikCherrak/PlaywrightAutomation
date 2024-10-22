@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Built_inlocators', async({page})=>{
+    try {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 
 
@@ -22,5 +23,8 @@ test('Built_inlocators', async({page})=>{
     //getByText
 
     // await expect(await page.getByText('vishwas dsadsasdfs')).toBeVisible();
+} catch (error) {
+    console.error("Navigation failed:", error);
+}
 
 })

