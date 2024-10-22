@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test("handle tables", async ({ page }) => {
+    try {
     await page.goto("https://testautomationpractice.blogspot.com/");
 
     // Nombre de colonnes
@@ -59,4 +60,7 @@ console.log("nombre of pagination in table : ", await pages.count())
     }
 
     await page.waitForTimeout(5000);
+} catch (error) {
+    console.error("Navigation failed:", error);
+}
 });

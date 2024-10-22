@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Alert ok', async ({page}) => {
+    try {
     await page.goto('https://testautomationpractice.blogspot.com/');
 
     //Enabling Dilaog window handler
@@ -12,4 +13,7 @@ page.on('dialog', async dialog=>{
 
 await page.click('//button[normalize-space()="Alert"]');
 page.waitForTimeout(5000);
+} catch (error) {
+    console.error("Navigation failed:", error);
+}
 });

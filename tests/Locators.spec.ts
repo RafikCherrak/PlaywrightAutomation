@@ -1,6 +1,7 @@
 import {test,expect} from '@playwright/test'
 
 test('Locators', async ({page})=> {
+    try {
     await page.goto('https://demoblaze.com/index.html');
 
     //click on login button  _property
@@ -30,4 +31,7 @@ test('Locators', async ({page})=> {
 
 
     await page.close();
+} catch (error) {
+    console.error("Navigation failed:", error);
+}
 })

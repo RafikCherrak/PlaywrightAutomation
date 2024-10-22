@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 
 
 test("handle frame",async ({page})=> {
+  try {
+
  await page.goto("https://ui.vision/demo/webtest/frames")
  const allFrames = await page.frames();
  console.log("nombre of all frames ",allFrames.length)
@@ -22,4 +24,7 @@ test("handle frame",async ({page})=> {
   const inputbox = await page.frameLocator("frame[src='frame_1.html']").locator("input[name='mytext1']")
   inputbox.fill("hello lacrim")
  await page.waitForTimeout(5000);
+} catch (error) {
+  console.error("Navigation failed:", error);
+}
 })

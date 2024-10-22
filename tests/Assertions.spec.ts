@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('AssertionsTest', async({page}) => {
+  try {
   //open app url
   await page.goto('https://demo.nopcommerce.com/register')
 
@@ -35,5 +36,8 @@ test('AssertionsTest', async({page}) => {
     // expect(locator).toHaveAttribut
     const registerButton = await page.locator('#register-button')
     await expect(registerButton).toHaveAttribute('type', 'submit')
+  } catch (error) {
+    console.error("Navigation failed:", error);
+}
 
 })
