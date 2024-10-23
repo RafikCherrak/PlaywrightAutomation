@@ -12,7 +12,7 @@ page.on('dialog', async dialog=>{
 })
 
 await page.click('//button[normalize-space()="Alert"]');
-page.waitForTimeout(5000);
+await page.waitForTimeout(5000);
 } catch (error) {
     console.error("Navigation failed:", error);
 }
